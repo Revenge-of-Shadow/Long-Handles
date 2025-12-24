@@ -1,6 +1,6 @@
 {
     "parent":   "item/handheld",
     "textures":{
-        "layer0":   "long_handles:item/name_jo_staff"
+        "layer0":   "long_handles:item/jo_staff"
     }
 }

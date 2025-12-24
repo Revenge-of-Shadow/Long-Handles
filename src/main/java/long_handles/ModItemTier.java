@@ -1,4 +1,5 @@
-package com.long_handles.long_handlesmod;
+package long_handles;
+import long_handles.ModItems;
 
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.item.IItemTier;
@@ -11,7 +12,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 public enum ModItemTier implements IItemTier{
-    LONGHANDLES(1, 131, 4.0F, 3.0F, 5, () -> Ingredient.of(Items.STICK));
+    LONGHANDLES(1, 96, 4.0F, 3.0F, 5, () -> Ingredient.of(ModItems.LONG_HANDLE.get()));
 
     private final int uses;
     private final float speed;

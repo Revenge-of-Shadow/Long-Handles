@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0":   "long_handlesmod:item/item_long_handle"
+        "layer0":   "long_handlesmod:item/long_handle"
     }
 }
