@@ -16,18 +16,17 @@ import net.minecraftforge.registries.ForgeRegistries;
 // The value here should match an entry in the META-INF/mods.toml file
 import net.minecraft.item.SwordItem;   
 
-@Mod("long_handles")
 public class ModItems 
 {
     public static final DeferredRegister<Item> ITEMS
     = DeferredRegister.create(ForgeRegistries.ITEMS, Long_Handles.MODID);
 
     public static final RegistryObject<Item> LONG_HANDLE = ITEMS.register("long_handle", () -> new Item(new Item.Properties().tab(ItemGroup.TAB_MISC)));
-    public static final RegistryObject<SwordItem> JO_STAFF = ITEMS.register("jo_staff", () -> new SwordItem(ModItemTier.JO_STAFF, 0, -2.0f, (new Item.Properties()).tab(ItemGroup.TAB_COMBAT)));
+    public static final RegistryObject<SwordItem> JO_STAFF = ITEMS.register("jo_staff", () -> new SwordItem(ModItemTier.JO_STAFF, -1, -2.0f, (new Item.Properties()).tab(ItemGroup.TAB_COMBAT)));
 
-    public static void register(){
-        IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        ITEMS.register(eventBus);
+    public static void register(IEventBus bus){
+        ITEMS.register(bus);
+
     }
 
 }

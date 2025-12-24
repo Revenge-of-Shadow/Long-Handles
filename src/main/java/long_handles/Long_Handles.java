@@ -16,13 +16,14 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;   
 import net.minecraft.item.SwordItem;   
 
-@Mod("long_handles")
+@Mod(Long_Handles.MODID)
 public class Long_Handles 
 {
     public static final String MODID = "long_handles";
 
     public Long_Handles(){
-        ModItems.register();
+        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        ModItems.register(modEventBus);
     }
 }
 
