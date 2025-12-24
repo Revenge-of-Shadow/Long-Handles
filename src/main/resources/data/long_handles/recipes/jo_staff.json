@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "long_handles:long_handle"
+        }
+    ],
+    "result": {
+        "item": "long_handles:jo_staff",
+        "count": 1
+    }
+}

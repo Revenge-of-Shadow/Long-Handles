@@ -6,28 +6,32 @@ import net.minecraft.item.IItemTier;
 import net.minecraft.item.Items;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.tags.ItemTags;
 
 import java.util.function.Supplier;
 import javax.annotation.ParametersAreNonnullByDefault;   
 
 @MethodsReturnNonnullByDefault
 public enum ModItemTier implements IItemTier{
-    LONGHANDLES(1, 96, 4.0F, 3.0F, 5, () -> Ingredient.of(ModItems.LONG_HANDLE.get()));
+    JO_STAFF(() -> Ingredient.of(ItemTags.PLANKS), 96, 6.0F, 3.0F, 2, 15),
+WOOD_HAMMER(() -> Ingredient.of(ItemTags.PLANKS), 150, 6.0F, 3.0F, 2, 15),
+    IRON_HAMMER(() -> Ingredient.of(Items.IRON_INGOT), 500, 7.0F, 4.0F, 2, 14),
+    DIAMOND_HAMMER(() -> Ingredient.of(Items.DIAMOND), 1500, 9.0F, 5.0F, 3, 10);
 
     private final int uses;
     private final float speed;
     private final float attackDamage;
-    private final int level;
+    private final int harvestLevel;
     private final int enchantmentValue;
-    private final Supplier<Ingredient> repairingredient;
+    private final Supplier<Ingredient> repairIngredient;
 
-    ModItemTier(int level, int uses, float speed, float attackDamage, int enchantmentValue, Supplier<Ingredient> repairingredient){
+    ModItemTier(Supplier<Ingredient> repairIngredient, int uses, float speed, float attackDamage, int harvestLevel, int enchantmentValue) {
         this.uses        = uses;
         this.speed     = speed;
         this.attackDamage   = attackDamage;
-        this.level   = level;
+        this.harvestLevel   = harvestLevel;
         this.enchantmentValue   = enchantmentValue;
-        this.repairingredient = repairingredient;
+        this.repairIngredient = repairIngredient;
     }
     @Override
     public int getUses(){
@@ -43,7 +47,7 @@ public enum ModItemTier implements IItemTier{
     }
     @Override
     public int getLevel(){
-        return this.level;
+        return this.harvestLevel;
     }
     @Override
     public int getEnchantmentValue(){
@@ -51,7 +55,7 @@ public enum ModItemTier implements IItemTier{
     }
     @Override
     public Ingredient getRepairIngredient(){
-        return this.repairingredient.get();
+        return this.repairIngredient.get();
     }
 }
 
