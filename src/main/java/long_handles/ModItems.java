@@ -20,10 +20,10 @@ import net.minecraft.item.SwordItem;
 public class ModItems 
 {
     public static final DeferredRegister<Item> ITEMS
-    = DeferredRegister.create(ForgeRegistries.ITEMS, Long_Handles.MOD_ID);
+    = DeferredRegister.create(ForgeRegistries.ITEMS, Long_Handles.MODID);
 
     public static final RegistryObject<Item> LONG_HANDLE = ITEMS.register("long_handle", () -> new Item(new Item.Properties().tab(ItemGroup.TAB_MISC)));
-    public static final RegistryObject<SwordItem> JO_STAFF = ITEMS.register("jo_staff", () -> new SwordItem(ModItemTier.JO_STAFF, -2, -1.2f, (new Item.Properties()).tab(ItemGroup.TAB_COMBAT)));
+    public static final RegistryObject<SwordItem> JO_STAFF = ITEMS.register("jo_staff", () -> new SwordItem(ModItemTier.JO_STAFF, 0, -2.0f, (new Item.Properties()).tab(ItemGroup.TAB_COMBAT)));
 
     public static void register(){
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();

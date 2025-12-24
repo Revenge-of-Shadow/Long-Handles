@@ -19,10 +19,10 @@ import net.minecraft.item.SwordItem;
 @Mod("long_handles")
 public class Long_Handles 
 {
-    public static final String MOD_ID = "long_handles";
+    public static final String MODID = "long_handles";
+
     public Long_Handles(){
         ModItems.register();
     }
-
 }
 

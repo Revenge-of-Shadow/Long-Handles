@@ -13,7 +13,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 public enum ModItemTier implements IItemTier{
-    JO_STAFF(() -> Ingredient.of(ItemTags.PLANKS), 96, 6.0F, 3.0F, 2, 15),
+    JO_STAFF(() -> Ingredient.of(ItemTags.PLANKS), 104, 6.0F, 3.0F, 2, 15),
 WOOD_HAMMER(() -> Ingredient.of(ItemTags.PLANKS), 150, 6.0F, 3.0F, 2, 15),
     IRON_HAMMER(() -> Ingredient.of(Items.IRON_INGOT), 500, 7.0F, 4.0F, 2, 14),
     DIAMOND_HAMMER(() -> Ingredient.of(Items.DIAMOND), 1500, 9.0F, 5.0F, 3, 10);
