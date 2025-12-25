@@ -14,11 +14,13 @@ import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
+import net.minecraft.item.UseAction;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeMod;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 import java.util.UUID;
 
@@ -51,6 +53,7 @@ public class JoStaffItem extends SwordItem{
         }
         return modifiers;
     }
+    //  Good luck breaking anything with a pole.
     @Override
     public float getDestroySpeed(ItemStack stack, BlockState state){
         return 0.2f;
@@ -71,6 +74,24 @@ public class JoStaffItem extends SwordItem{
     }
     // Does not prevent use
     // but, like, whatever.
+    @Override
+    public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand){
+        ItemStack stack = player.getItemInHand(hand);
+        if(!player.getOffhandItem().isEmpty()){
+            return ActionResult.pass(player.getItemInHand(hand));
+        }
+//        return super.use(world, player, hand);
+        player.startUsingItem(hand);
+        return ActionResult.consume(stack);
+    }
+    @Override
+    public UseAction getUseAnimation(ItemStack stack){
+        return UseAction.BLOCK;
+    }
+    @Override
+    public int getUseDuration(ItemStack stack){
+        return 72000/2;   //  Shield value, reduced.
+    }
 
 
 }
