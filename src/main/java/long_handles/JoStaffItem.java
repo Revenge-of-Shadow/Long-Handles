@@ -2,17 +2,28 @@ package long_handles;
 
 import com.google.common.collect.Multimap;
 import com.google.common.collect.HashMultimap;
+import mcp.MethodsReturnNonnullByDefault;
+import net.minecraft.block.BlockState;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.Attribute;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IItemTier;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeMod;
 
 import java.util.UUID;
 
 
+@MethodsReturnNonnullByDefault
 public class JoStaffItem extends SwordItem{
     private static final UUID REACH_MODIFIER_UUID =
         UUID.fromString("7c9d1f38-2b9e-4f6a-bf9e-8d9f91a9c001");
@@ -38,7 +49,28 @@ public class JoStaffItem extends SwordItem{
                     )
             );
         }
-
         return modifiers;
     }
+    @Override
+    public float getDestroySpeed(ItemStack stack, BlockState state){
+        return 0.2f;
+    }
+    @Override
+    public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, PlayerEntity player){
+        if(!player.getOffhandItem().isEmpty()){
+            return true;
+        }
+        return super.onBlockStartBreak(stack, pos, player);
+    }
+    @Override
+    public boolean onLeftClickEntity(ItemStack stack, PlayerEntity player, Entity entity){
+        if(!player.getOffhandItem().isEmpty()){
+            return true;
+        }
+        return super.onLeftClickEntity(stack, player, entity);
+    }
+    // Does not prevent use
+    // but, like, whatever.
+
+
 }
