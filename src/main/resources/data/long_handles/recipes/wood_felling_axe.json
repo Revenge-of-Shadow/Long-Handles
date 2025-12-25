@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "/#"
+  ],
+  "key": {
+    "/": {
+      "item": "long_handles:long_handle"
+    },
+    "#":{
+      "tag": "minecraft:planks"
+    }
+},
+  "result": {
+    "item": "long_handles:wood_felling_axe",
+    "count": 1
+  }
+}

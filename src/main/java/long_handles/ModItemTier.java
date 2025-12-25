@@ -15,9 +15,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public enum ModItemTier implements IItemTier{
     JO_STAFF(() -> Ingredient.of(ItemTags.PLANKS), 104, 6.0F, 3.0F, 2, 15),
     BO_STAFF(() -> Ingredient.of(ItemTags.PLANKS), 208, 6.0F, 3.0F, 2, 15),
-WOOD_HAMMER(() -> Ingredient.of(ItemTags.PLANKS), 150, 6.0F, 3.0F, 2, 15),
-    IRON_HAMMER(() -> Ingredient.of(Items.IRON_INGOT), 500, 7.0F, 4.0F, 2, 14),
-    DIAMOND_HAMMER(() -> Ingredient.of(Items.DIAMOND), 1500, 9.0F, 5.0F, 3, 10);
+
+    WOOD_FELLING_AXE(() -> Ingredient.of(ItemTags.PLANKS), 59, 6.0F, 6.0F, 2, 15),
+    STONE_FELLING_AXE(() -> Ingredient.of(ItemTags.STONE_TOOL_MATERIALS), 131, 6.0F, 8.0F, 2, 15),
+    IRON_FELLING_AXE(() -> Ingredient.of(Items.IRON_INGOT), 250, 6.0F, 8.0F, 2, 14),
+    GOLDEN_FELLING_AXE(() -> Ingredient.of(Items.GOLD_INGOT), 32, 6.0F, 6.0F, 2, 14),
+    DIAMOND_FELLING_AXE(() -> Ingredient.of(Items.DIAMOND), 1561, 6.0F, 8.0F, 3, 10),
+    NETHERITE_FELLING_AXE(() -> Ingredient.of(Items.NETHERITE_INGOT), 2031, 6.0F, 9.0F, 2, 14);
 
     private final int uses;
     private final float speed;

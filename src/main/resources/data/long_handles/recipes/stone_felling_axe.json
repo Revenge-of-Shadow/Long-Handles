@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "/#"
+  ],
+  "key": {
+    "/": {
+      "item": "long_handles:long_handle"
+    },
+    "#":{
+      "item": "minecraft:cobblestone"
+    }
+},
+  "result": {
+    "item": "long_handles:stone_felling_axe",
+    "count": 1
+  }
+}

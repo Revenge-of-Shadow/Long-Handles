@@ -25,11 +25,15 @@ public class ModItems
 
     public static final RegistryObject<Item> LONG_HANDLE = ITEMS.register("long_handle", () -> new Item(new Item.Properties().tab(ItemGroup.TAB_MISC)));
     public static final RegistryObject<Item> JO_STAFF = ITEMS.register("jo_staff", () -> new JoStaffItem(
-        ModItemTier.JO_STAFF, -1, -2.0f, new Item.Properties().tab(ItemGroup.TAB_COMBAT)
-    ));
-    public static final RegistryObject<Item> BO_STAFF = ITEMS.register("bo_staff", () -> new BoStaffItem(
-            ModItemTier.BO_STAFF, 0, -3.0f, new Item.Properties().tab(ItemGroup.TAB_COMBAT)
-    ));
+        ModItemTier.JO_STAFF, -1, -2.0f, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+    public static final RegistryObject<Item> BO_STAFF = ITEMS.register("bo_staff", () -> new BoStaffItem(ModItemTier.BO_STAFF, 0, -3.0f, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+
+    public static final RegistryObject<Item> WOOD_FELLING_AXE = ITEMS.register("wood_felling_axe", () -> new FellingAxeItem(ModItemTier.WOOD_FELLING_AXE, 0, -2.5f, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+    public static final RegistryObject<Item> STONE_FELLING_AXE = ITEMS.register("stone_felling_axe", () -> new FellingAxeItem(ModItemTier.STONE_FELLING_AXE, 0, -3.f, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+    public static final RegistryObject<Item> IRON_FELLING_AXE = ITEMS.register("iron_felling_axe", () -> new FellingAxeItem(ModItemTier.IRON_FELLING_AXE, 0, -3.f, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+    public static final RegistryObject<Item> DIAMOND_FELLING_AXE = ITEMS.register("diamond_felling_axe", () -> new FellingAxeItem(ModItemTier.DIAMOND_FELLING_AXE, 0, -3.f, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+    public static final RegistryObject<Item> GOLDEN_FELLING_AXE = ITEMS.register("golden_felling_axe", () -> new FellingAxeItem(ModItemTier.GOLDEN_FELLING_AXE, 0, -3.f, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+    public static final RegistryObject<Item> NETHERITE_FELLING_AXE = ITEMS.register("netherite_felling_axe", () -> new FellingAxeItem(ModItemTier.NETHERITE_FELLING_AXE, 0, -3.f, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
 
     public static void register(IEventBus bus){
         ITEMS.register(bus);
