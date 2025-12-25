@@ -27,6 +27,9 @@ public class ModItems
     public static final RegistryObject<Item> JO_STAFF = ITEMS.register("jo_staff", () -> new JoStaffItem(
         ModItemTier.JO_STAFF, -1, -2.0f, new Item.Properties().tab(ItemGroup.TAB_COMBAT)
     ));
+    public static final RegistryObject<Item> BO_STAFF = ITEMS.register("bo_staff", () -> new BoStaffItem(
+            ModItemTier.BO_STAFF, 0, -3.0f, new Item.Properties().tab(ItemGroup.TAB_COMBAT)
+    ));
 
     public static void register(IEventBus bus){
         ITEMS.register(bus);

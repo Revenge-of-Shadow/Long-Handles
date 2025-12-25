@@ -1,14 +1,12 @@
 package long_handles;
 
-import com.google.common.collect.Multimap;
 import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.Attribute;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
-
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IItemTier;
@@ -20,17 +18,16 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeMod;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
 import java.util.UUID;
 
 
 @MethodsReturnNonnullByDefault
-public class JoStaffItem extends SwordItem{
+public class BoStaffItem extends SwordItem{
     private static final UUID REACH_MODIFIER_UUID =
-        UUID.fromString("7c9d1f38-2b9e-4f6a-bf9e-8d9f91a9c001");
+        UUID.fromString("8c9d1f38-2b9e-4f6a-bf9e-8d9f91a9c001");
 
-    public JoStaffItem(IItemTier tier, int attackDamage, float attackSpeed, Properties properties){
+    public BoStaffItem(IItemTier tier, int attackDamage, float attackSpeed, Properties properties){
         super(tier, attackDamage, attackSpeed, properties);
     }
 
@@ -45,7 +42,7 @@ public class JoStaffItem extends SwordItem{
                     new AttributeModifier(
                             REACH_MODIFIER_UUID,
                             "Weapon reach bonus",
-                            1.00,
+                            2.00,
                             AttributeModifier.Operation.ADDITION
                     )
             );

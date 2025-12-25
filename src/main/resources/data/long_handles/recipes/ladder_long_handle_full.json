@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "L/L",
+    "L/L",
+    "L/L"
+  ],
+  "key": {
+    "/": {
+      "item": "minecraft:stick"
+    },
+    "L": {
+      "item": "long_handles:long_handle"
+    }
+  },
+  "result": {
+    "item": "minecraft:ladder",
+    "count": 6
+  }
+}
