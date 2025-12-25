@@ -6,6 +6,8 @@ import net.minecraftforge.fml.common.Mod;
 
 import long_handles.ModItemTier;
 import long_handles.Long_Handles;
+import long_handles.JoStaffItem;
+
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -22,7 +24,9 @@ public class ModItems
     = DeferredRegister.create(ForgeRegistries.ITEMS, Long_Handles.MODID);
 
     public static final RegistryObject<Item> LONG_HANDLE = ITEMS.register("long_handle", () -> new Item(new Item.Properties().tab(ItemGroup.TAB_MISC)));
-    public static final RegistryObject<SwordItem> JO_STAFF = ITEMS.register("jo_staff", () -> new SwordItem(ModItemTier.JO_STAFF, -1, -2.0f, (new Item.Properties()).tab(ItemGroup.TAB_COMBAT)));
+    public static final RegistryObject<Item> JO_STAFF = ITEMS.register("jo_staff", () -> new JoStaffItem(
+        ModItemTier.JO_STAFF, -1, -2.0f, new Item.Properties().tab(ItemGroup.TAB_COMBAT)
+    ));
 
     public static void register(IEventBus bus){
         ITEMS.register(bus);
