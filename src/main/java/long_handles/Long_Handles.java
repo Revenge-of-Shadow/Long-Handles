@@ -9,6 +9,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 // The value here should match an entry in the META-INF/mods.toml file
@@ -24,6 +25,14 @@ public class Long_Handles
     public Long_Handles(){
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModItems.register(modEventBus);
+
+        modEventBus.addListener(this::commonSetup);
+    }
+
+    private void commonSetup(final FMLCommonSetupEvent event){
+        event.enqueueWork(() ->{
+            ModNetwork.register();
+        });
     }
 }
 
