@@ -3,8 +3,9 @@
     "item.long_handles.jo_staff": "Jo staff",
     "item.long_handles.bo_staff": "Bo staff",
     "item.long_handles.wood_felling_axe": "Wood felling axe",
-  "item.long_handles.stone_felling_axe": "Stone felling axe",
-  "item.long_handles.iron_felling_axe": "Iron felling axe",
-  "item.long_handles.diamond_felling_axe": "Diamond felling axe",
-  "item.long_handles.netherite_felling_axe": "Netherite felling axe"
+    "item.long_handles.stone_felling_axe": "Stone felling axe",
+    "item.long_handles.iron_felling_axe": "Iron felling axe",
+    "item.long_handles.golden_felling_axe": "Golden felling axe",
+    "item.long_handles.diamond_felling_axe": "Diamond felling axe",
+    "item.long_handles.netherite_felling_axe": "Netherite felling axe"
 }

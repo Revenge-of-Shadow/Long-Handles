@@ -4,23 +4,33 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.HashMultimap;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.BlockState;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.Attribute;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 
+import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ProjectileHelper;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.UseAction;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.Hand;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.EntityRayTraceResult;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.player.AttackEntityEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import java.util.UUID;
 
@@ -91,6 +101,41 @@ public class JoStaffItem extends SwordItem{
     public int getUseDuration(ItemStack stack){
         return 72000/2;   //  Shield value, reduced.
     }
+    @SubscribeEvent
+    public static void onAttackEntity(AttackEntityEvent event) {
+        PlayerEntity player = event.getPlayer();
+        World world = player.level;
 
+        ItemStack stack = player.getMainHandItem();
+        if (!(stack.getItem() instanceof JoStaffItem)) {
+            return;
+        }
+        event.setCanceled(true);
+
+        double reach = 4.0D;
+        Vector3d eyePos = player.getEyePosition(1.0F);
+        Vector3d lookVec = player.getLookAngle();
+        Vector3d reachVec = eyePos.add(lookVec.scale(reach));
+
+        AxisAlignedBB box = new AxisAlignedBB(eyePos.x, eyePos.y, eyePos.z, reachVec.x, reachVec.y, reachVec.z).inflate(1.0D);
+
+        EntityRayTraceResult result = ProjectileHelper.getEntityHitResult(world, player, eyePos, reachVec, box, e -> e instanceof LivingEntity && e != player && e.isPickable());
+
+        if (result == null) {
+            return;
+        }
+
+        Entity target = result.getEntity();
+        if (!(target instanceof LivingEntity))
+            return;
+        float damage = (float) ((player.getAttributeValue(Attributes.ATTACK_DAMAGE))
+                        + ((JoStaffItem) stack.getItem()).getTier().getAttackDamageBonus());
+        target.hurt(DamageSource.playerAttack(player), damage);
+        int kbLevel = EnchantmentHelper.getEnchantmentLevel(Enchantments.KNOCKBACK, player);
+        ((LivingEntity) target).knockback(0.4F*(kbLevel), reachVec.x, reachVec.z);
+
+        player.swing(Hand.MAIN_HAND);
+
+    }
 
 }
