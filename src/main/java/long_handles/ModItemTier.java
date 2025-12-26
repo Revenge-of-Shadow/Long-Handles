@@ -21,7 +21,13 @@ public enum ModItemTier implements IItemTier{
     IRON_FELLING_AXE(() -> Ingredient.of(Items.IRON_INGOT), 250, 0.5F, 8.0F, 2, 14),
     GOLDEN_FELLING_AXE(() -> Ingredient.of(Items.GOLD_INGOT), 32, 0.5F, 7.0F, 2, 14),
     DIAMOND_FELLING_AXE(() -> Ingredient.of(Items.DIAMOND), 1561, 0.5F, 9.0F, 3, 10),
-    NETHERITE_FELLING_AXE(() -> Ingredient.of(Items.NETHERITE_INGOT), 2031, 0.5F, 10.0F, 4, 14);
+    NETHERITE_FELLING_AXE(() -> Ingredient.of(Items.NETHERITE_INGOT), 2031, 0.5F, 10.0F, 4, 14),
+    WOOD_SLEDGEHAMMER(() -> Ingredient.of(ItemTags.PLANKS), 59, 0.5F, 0.0F, 1, 15),
+    STONE_SLEDGEHAMMER(() -> Ingredient.of(ItemTags.STONE_TOOL_MATERIALS), 131, 0.5F, 4.0F, 1, 15),
+    IRON_SLEDGEHAMMER(() -> Ingredient.of(Items.IRON_INGOT), 250, 0.5F, 8.0F, 2, 14),
+    GOLDEN_SLEDGEHAMMER(() -> Ingredient.of(Items.GOLD_INGOT), 32, 0.5F, 7.0F, 2, 14),
+    DIAMOND_SLEDGEHAMMER(() -> Ingredient.of(Items.DIAMOND), 1561, 0.5F, 9.0F, 3, 10),
+    NETHERITE_SLEDGEHAMMER(() -> Ingredient.of(Items.NETHERITE_INGOT), 2031, 0.5F, 10.0F, 4, 14);
 
     private final int uses;
     private final float speed;

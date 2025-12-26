@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    " / "
+  ],
+  "key": {
+    "/": {
+      "item": "long_handles:long_handle"
+    },
+    "#":{
+      "item": "minecraft:diamond"
+    }
+},
+  "result": {
+    "item": "long_handles:diamond_sledgehammer",
+    "count": 1
+  }
+}

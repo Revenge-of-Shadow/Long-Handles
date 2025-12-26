@@ -34,6 +34,12 @@ public class ModItems
     public static final RegistryObject<Item> DIAMOND_FELLING_AXE = ITEMS.register("diamond_felling_axe", () -> new FellingAxeItem(ModItemTier.DIAMOND_FELLING_AXE, 2, -3.5f, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
     public static final RegistryObject<Item> GOLDEN_FELLING_AXE = ITEMS.register("golden_felling_axe", () -> new FellingAxeItem(ModItemTier.GOLDEN_FELLING_AXE, 2, -3.5f, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
     public static final RegistryObject<Item> NETHERITE_FELLING_AXE = ITEMS.register("netherite_felling_axe", () -> new FellingAxeItem(ModItemTier.NETHERITE_FELLING_AXE, 2, -3.5f, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+    public static final RegistryObject<Item> WOOD_SLEDGEHAMMER = ITEMS.register("wood_sledgehammer", () -> new SledgehammerItem(ModItemTier.WOOD_FELLING_AXE, 1, -3.5f, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+    public static final RegistryObject<Item> STONE_SLEDGEHAMMER = ITEMS.register("stone_sledgehammer", () -> new SledgehammerItem(ModItemTier.STONE_SLEDGEHAMMER, 1, -3.5f, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+    public static final RegistryObject<Item> IRON_SLEDGEHAMMER = ITEMS.register("iron_sledgehammer", () -> new SledgehammerItem(ModItemTier.IRON_SLEDGEHAMMER, 1, -3.5f, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+    public static final RegistryObject<Item> DIAMOND_SLEDGEHAMMER = ITEMS.register("diamond_sledgehammer", () -> new SledgehammerItem(ModItemTier.DIAMOND_SLEDGEHAMMER, 1, -3.5f, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+    public static final RegistryObject<Item> GOLDEN_SLEDGEHAMMER = ITEMS.register("golden_sledgehammer", () -> new SledgehammerItem(ModItemTier.GOLDEN_SLEDGEHAMMER, 1, -3.5f, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+    public static final RegistryObject<Item> NETHERITE_SLEDGEHAMMER = ITEMS.register("netherite_sledgehammer", () -> new SledgehammerItem(ModItemTier.NETHERITE_SLEDGEHAMMER, 1, -3.5f, new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
 
     public static void register(IEventBus bus){
         ITEMS.register(bus);

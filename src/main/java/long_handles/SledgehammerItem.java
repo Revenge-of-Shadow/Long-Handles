@@ -5,31 +5,18 @@ import com.google.common.collect.Multimap;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.Minecraft;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.Attribute;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.ProjectileHelper;
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.AxeItem;
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.UseAction;
+import net.minecraft.item.*;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.Hand;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.EntityRayTraceResult;
-import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeMod;
-import net.minecraftforge.common.ToolType;
-import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -37,7 +24,7 @@ import java.util.UUID;
 
 
 @MethodsReturnNonnullByDefault
-public class FellingAxeItem extends AxeItem {
+public class SledgehammerItem extends PickaxeItem {
     private static final UUID REACH_MODIFIER_UUID =
         UUID.fromString("9c9d1f38-2b9e-4f6a-bf9e-8d9f91a9c001");
     public static final int cooldown = 40;
@@ -61,7 +48,7 @@ public class FellingAxeItem extends AxeItem {
         player.getCooldowns().addCooldown(this, cooldown);
     }
 
-    public FellingAxeItem(IItemTier tier, int attackDamage, float attackSpeed, Properties properties){
+    public SledgehammerItem(IItemTier tier, int attackDamage, float attackSpeed, Properties properties){
         super(tier, attackDamage, attackSpeed, properties);
     }
 
@@ -104,13 +91,13 @@ public class FellingAxeItem extends AxeItem {
         PlayerEntity player = event.getPlayer();
         ItemStack stack = event.getItemStack();
 
-        if (stack.getItem() instanceof FellingAxeItem){
-           if(((FellingAxeItem) stack.getItem()).isOnCooldown(player)
+        if (stack.getItem() instanceof SledgehammerItem){
+           if(((SledgehammerItem) stack.getItem()).isOnCooldown(player)
                 || !player.getOffhandItem().isEmpty()){
                event.setCanceled(true);
            }
            else {
-               ((FellingAxeItem) stack.getItem()).startCooldown(player);
+               ((SledgehammerItem) stack.getItem()).startCooldown(player);
            }
         }
     }

@@ -4,14 +4,11 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.HashMultimap;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.BlockState;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.Attribute;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 
-import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileHelper;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -100,42 +97,6 @@ public class JoStaffItem extends SwordItem{
     @Override
     public int getUseDuration(ItemStack stack){
         return 72000/2;   //  Shield value, reduced.
-    }
-    @SubscribeEvent
-    public static void onAttackEntity(AttackEntityEvent event) {
-        PlayerEntity player = event.getPlayer();
-        World world = player.level;
-
-        ItemStack stack = player.getMainHandItem();
-        if (!(stack.getItem() instanceof JoStaffItem)) {
-            return;
-        }
-        event.setCanceled(true);
-
-        double reach = 4.0D;
-        Vector3d eyePos = player.getEyePosition(1.0F);
-        Vector3d lookVec = player.getLookAngle();
-        Vector3d reachVec = eyePos.add(lookVec.scale(reach));
-
-        AxisAlignedBB box = new AxisAlignedBB(eyePos.x, eyePos.y, eyePos.z, reachVec.x, reachVec.y, reachVec.z).inflate(1.0D);
-
-        EntityRayTraceResult result = ProjectileHelper.getEntityHitResult(world, player, eyePos, reachVec, box, e -> e instanceof LivingEntity && e != player && e.isPickable());
-
-        if (result == null) {
-            return;
-        }
-
-        Entity target = result.getEntity();
-        if (!(target instanceof LivingEntity))
-            return;
-        float damage = (float) ((player.getAttributeValue(Attributes.ATTACK_DAMAGE))
-                        + ((JoStaffItem) stack.getItem()).getTier().getAttackDamageBonus());
-        target.hurt(DamageSource.playerAttack(player), damage);
-        int kbLevel = EnchantmentHelper.getEnchantmentLevel(Enchantments.KNOCKBACK, player);
-        ((LivingEntity) target).knockback(0.4F*(kbLevel), reachVec.x, reachVec.z);
-
-        player.swing(Hand.MAIN_HAND);
-
     }
 
 }

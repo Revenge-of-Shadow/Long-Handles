@@ -1,11 +1,17 @@
 {
-    "item.long_handles.long_handle": "Long handle",
-    "item.long_handles.jo_staff": "Jo staff",
-    "item.long_handles.bo_staff": "Bo staff",
-    "item.long_handles.wood_felling_axe": "Wood felling axe",
-    "item.long_handles.stone_felling_axe": "Stone felling axe",
-    "item.long_handles.iron_felling_axe": "Iron felling axe",
-    "item.long_handles.golden_felling_axe": "Golden felling axe",
-    "item.long_handles.diamond_felling_axe": "Diamond felling axe",
-    "item.long_handles.netherite_felling_axe": "Netherite felling axe"
+  "item.long_handles.long_handle": "Long handle",
+  "item.long_handles.jo_staff": "Jo staff",
+  "item.long_handles.bo_staff": "Bo staff",
+  "item.long_handles.wood_felling_axe": "Wood felling axe",
+  "item.long_handles.stone_felling_axe": "Stone felling axe",
+  "item.long_handles.iron_felling_axe": "Iron felling axe",
+  "item.long_handles.golden_felling_axe": "Golden felling axe",
+  "item.long_handles.diamond_felling_axe": "Diamond felling axe",
+  "item.long_handles.netherite_felling_axe": "Netherite felling axe",
+  "item.long_handles.wood_sledgehammer": "Wood sledgehammer",
+  "item.long_handles.stone_sledgehammer": "Stone sledgehammer",
+  "item.long_handles.iron_sledgehammer": "Iron sledgehammer",
+  "item.long_handles.golden_sledgehammer": "Golden sledgehammer",
+  "item.long_handles.diamond_sledgehammer": "Diamond sledgehammer",
+  "item.long_handles.netherite_sledgehammer": "Netherite sledgehammer"
 }

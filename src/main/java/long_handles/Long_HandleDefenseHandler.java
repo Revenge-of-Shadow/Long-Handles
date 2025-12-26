@@ -7,7 +7,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = Long_Handles.MODID)
-public class FellingAxeDefenseHandler {
+public class Long_HandleDefenseHandler {
     @SubscribeEvent
     public static void onPlayerHurt(LivingHurtEvent event){
         if(!(event.getEntityLiving() instanceof PlayerEntity)) return;
@@ -16,7 +16,8 @@ public class FellingAxeDefenseHandler {
         ItemStack offHand = player.getOffhandItem();
         ItemStack mainHand = player.getMainHandItem();
 
-        if(mainHand.getItem() instanceof FellingAxeItem && offHand.isEmpty() &&player.isUsingItem()){
+        if((mainHand.getItem() instanceof FellingAxeItem || mainHand.getItem() instanceof SledgehammerItem)
+                && offHand.isEmpty() &&player.isUsingItem()){
             float original = event.getAmount();
             event.setAmount(original * 0.7f);   //  Fair?
         }
